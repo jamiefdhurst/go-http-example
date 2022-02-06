@@ -1,0 +1,12 @@
+FROM golang:1.15
+
+WORKDIR /go/src/github.com/jamiefdhurst/go-http-example
+COPY . .
+
+RUN go install
+RUN go get github.com/tebeka/go2xunit
+RUN go get github.com/t-yuki/gocover-cobertura
+
+EXPOSE 8080
+
+CMD ["go-http-example"]
